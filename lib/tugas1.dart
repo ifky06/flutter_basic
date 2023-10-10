@@ -79,11 +79,11 @@ class Tugas1 extends StatelessWidget {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    buildRowImage('assets/images/player1.jpg'),
-                    buildRowImage('assets/images/player2.jpg'),
-                    buildRowImage('assets/images/player3.jpg'),
-                    buildRowImage('assets/images/player4.jpeg'),
-                    buildRowImage('assets/images/player5.jpg')
+                    getBuildRowImage('assets/images/player1.jpg'),
+                    getBuildRowImage('assets/images/player2.jpg'),
+                    getBuildRowImage('assets/images/player3.jpg'),
+                    getBuildRowImage('assets/images/player4.jpeg'),
+                    getBuildRowImage('assets/images/player5.jpg')
                   ],
                 ),
               ),
@@ -101,22 +101,39 @@ class Tugas1 extends StatelessWidget {
                         color: textColor,
                         fontWeight: FontWeight.bold)),
               ),
-              buildTopPlayers('assets/images/player1.jpg', '1', 'Lionel Messi',
-                  'Inter Miami'),
-              buildTopPlayers('assets/images/player2.jpg', '2',
-                  'Erling Haaland', 'Manchester City'),
-              buildTopPlayers('assets/images/player3.jpg', '3', 'Kylian Mbappe',
-                  'Paris Saint Germain'),
-              buildTopPlayers(
-                  'assets/images/player4.jpeg', '4', 'Pedri', 'Barcelona'),
-              buildTopPlayers('assets/images/player5.jpg', '5',
-                  'Cristiano Ronaldo', 'Al Nasr'),
+              getBuildTopPlayer(
+                  image: 'assets/images/player1.jpg',
+                  number: '1',
+                  name: 'Lionel Messi',
+                  team: 'Inter Miami'),
+              getBuildTopPlayer(
+                  image: 'assets/images/player2.jpg',
+                  number: '2',
+                  name: 'Erling Haaland',
+                  team: 'Manchester City'),
+              getBuildTopPlayer(
+                  image: 'assets/images/player3.jpg',
+                  number: '3',
+                  name: 'Kylian Mbappe',
+                  team: 'Paris Saint Germain'),
+              getBuildTopPlayer(
+                  image: 'assets/images/player4.jpeg',
+                  number: '4',
+                  name: 'Pedri',
+                  team: 'Barcelona'),
+              getBuildTopPlayer(
+                  image: 'assets/images/player5.jpg',
+                  number: '5',
+                  name: 'Cristiano Ronaldo',
+                  team: 'Al Nasr'),
             ],
           ),
         ));
   }
 
-  Widget buildRowImage(String image) {
+  Widget getBuildRowImage(String image) => _buildRowImage(image);
+
+  Widget _buildRowImage(String image) {
     return Container(
       width: 65,
       height: 200,
@@ -127,7 +144,15 @@ class Tugas1 extends StatelessWidget {
     );
   }
 
-  Widget buildTopPlayers(
+  Widget getBuildTopPlayer({
+    required String image,
+    required String number,
+    required String name,
+    required String team,
+  }) =>
+      _buildTopPlayers(image, number, name, team);
+
+  Widget _buildTopPlayers(
       String image, String number, String name, String team) {
     return Container(
       decoration: BoxDecoration(
